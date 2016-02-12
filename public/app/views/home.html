@@ -2,7 +2,12 @@
 <p><a href="/about">About</a></p>
 <p><a href="/blogs">Blog Postings</a></p>
 
-<input type="text" placeholder="Username" />
-<input type="password" placeholder="Password" />
-
-{{ homeTest }}
+<input type="text"
+       ng-model="UserService.userName"
+       ng-change="userCheck(UserService.userName)"
+       placeholder="Username" />
+<input type="email"
+       ng-model="UserService.email"
+       ng-change="userCheck(UserService.email)"
+       placeholder="Email" />
+<button ng-click="submitUser(UserService)">POST</button>
