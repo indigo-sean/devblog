@@ -8,32 +8,35 @@
   $scope.userCheck = function (field) {
     //console.log(field);
   };
-
   $scope.submitUser = function (obj) {
-    console.log(nullify(obj));
-    if (nullify(obj) == false) {
-      return;
-    } else {
-      console.log('Sending...');
-      $http.post('/api/users', UserService)
-        .then(function (res){
-          console.log('Response: ', res);
-        }, function (err) {
-          console.log('Error: ', err);
-        });
-    }
+    nullify(obj);
+    if (obj.userName == null) { return };
+    if (obj.email == null) { return };
+    console.log('Sending...');
+    $http.post('/api/users', UserService)
+      .then(function (res){
+        console.log('Response: ', res);
+        clearFields(obj);
+      }, function (err) {
+        console.log('Error: ', err);
+      });
   };
 
-  function nullify(obj) {
-    var res;
-    for (var prop in obj) {
-      if (obj[prop] === '') {
-        obj[prop] = null;
-        res = false;
-      }
-      console.log(prop + ': ', obj[prop]);
+  function clearFields(obj) {
+    for(var prop in obj) {
+      obj[prop] = null;
     }
-    return res;
   }
+
+  function nullify(obj) {
+    for (var prop in obj) {
+      if (obj[prop] == '') {
+        obj[prop] = null;
+      }
+    }
+  }
+
+
+
 
 }]);

@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 var Blog = mongoose.model('Blog', {
   user_id: String,
   title: String,
-  body: String
+  body: String,
+  createdAt: { type: Date, default: Date.now }
 });
 
 module.exports = Blog;

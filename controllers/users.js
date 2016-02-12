@@ -13,7 +13,6 @@ router.route('/')
     });
   })
   .post(function (req, res) {
-  //console.log('req.body: ', req.body);
   User.create({
     userName: req.body.userName,
     email: req.body.email
