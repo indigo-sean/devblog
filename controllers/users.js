@@ -22,6 +22,4 @@ router.route('/')
   });
 });
 
-
-
 module.exports = router;

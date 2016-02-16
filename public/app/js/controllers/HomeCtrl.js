@@ -25,16 +25,16 @@
   function clearFields(obj) {
     for(var prop in obj) {
       obj[prop] = null;
-    }
-  }
+    };
+  };
 
   function nullify(obj) {
     for (var prop in obj) {
       if (obj[prop] == '') {
         obj[prop] = null;
-      }
-    }
-  }
+      };
+    };
+  };
 
 
 
